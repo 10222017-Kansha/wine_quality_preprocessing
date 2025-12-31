@@ -8,7 +8,7 @@ import pandas as pd
 import fire
 
 set_config(transform_output="pandas")
-def preprocess_data(data_path, target_column, file_path):
+def preprocess_data(data_path, save_path_train, save_path_test):
     df = pd.read_csv(data_path)
     # Menentukan fitur numerik dan kategoris
     numeric_features = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
@@ -69,8 +69,8 @@ def preprocess_data(data_path, target_column, file_path):
     shipping_test = pd.concat([X_test_final, y_test], axis=1)
 
     # Export to csv
-    shipping_train.to_csv(f"{file_path}\train.csv", index=False)
-    shipping_test.to_csv(f"{file_path}\test.csv", index=False)
+    shipping_train.to_csv(save_path_train, index=False)
+    shipping_test.to_csv(save_path_test, index=False)
 
 if __name__ == '__main__':
     fire.Fire(preprocess_data)
