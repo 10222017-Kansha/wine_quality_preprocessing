@@ -8,7 +8,7 @@ import pandas as pd
 import fire
 
 set_config(transform_output="pandas")
-def preprocess_data(data_path, save_path_train, save_path_test):
+def preprocess_data(data_path, target_column, save_path_train, save_path_test):
     df = pd.read_csv(data_path)
     # Menentukan fitur numerik dan kategoris
     numeric_features = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
