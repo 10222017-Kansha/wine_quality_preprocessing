@@ -36,7 +36,7 @@ jobs:
       - name: Run Preprocessing Function
         run: |
           python preprocessing/automate_Kansha.py \
-            --data='wine_quality_raw.csv' \
+            --data_path='wine_quality_raw.csv' \
             --target_column='quality' \
             --save_path_train='preprocessing/wine_quality_train.csv' \
             --save_path_test='preprocessing/wine_quality_test.csv'
